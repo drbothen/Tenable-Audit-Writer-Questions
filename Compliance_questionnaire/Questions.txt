@@ -1,0 +1,87 @@
+Windows :
+
+- You are asked to harden a Windows Server before it goes in production. What steps will
+  you take to make the system production ready? Now assume, this server is going to have
+  IIS installed on top it. What additional steps would you take, and why?
+  
+WMI :
+
+Provide WMI queries that can be run in either wmic or wmiexplorer for the following :
+
+- Enumerate list of antivirus software's installed on the system.
+- List all services on the system with start mode set to either Auto or Manual.
+- Provide a WMI query to determine whether a system is a Domain Controller.
+
+PowerShell :
+
+- Provide a PowerShell query to list all processes with id greater than 1000 and less than 2000.
+- Provide a PowerShell query to list only .bak and .temp files in C:\ under all folders and subfolders.
+
+XSL Transforms :
+
+- Get a listing of vSwitch (provided in sample)
+- Get a listing of Pnic 
+- Get a listing ConsoleVnic 
+- Get a list of Services Running
+- Check the Firewall Status
+- Check Firewall Status for CIMHttpsServer
+
+Regular Expressions :
+
+- Provide a regex that matches all numbers less than or equal to 1048576.
+- Provide a regex such it matches the "foobar" set to true/false/yes/no regardless of the case :
+  for e.g. 
+  foobar = true 
+  foobar  True
+  Foobar : FALSE
+  
+MySQL :
+
+- List all users with null or blank password.
+- List all users having Super privilege and Shutdown privilege.
+- Provide a SQL query to audit secure_auth is enabled.
+
+Linux
+
+- What is the purpose of /proc filesystem ?
+
+- Assume your dev system is full, how will you find out you which directories are using up
+  space, and start clearing unnecessary files?  
+
+- What are the benefits of a setuid program? And are there any security implications
+  of having setuid programs on a system?
+
+- Provide a command to find following files.
+  - setuid or setguid bit set
+  - world writeable files.
+
+- When would you redirect output to /dev/null 2>&1 and what purpose does it serve?
+
+- How would you read first and last X number of lines from a file?
+
+- How will you compare two files, and the list lines that have changed, while ignoring 
+  blank lines, and spaces?
+  
+- How will you determine the program name associated that is listening on a given TCP/UDP port?
+
+- Provide a command using grep to find all files with "info" or "error" or "warn" strings, 
+ and then pipe those results, and list files that were modified in the past one week.  
+
+- Provide detailed steps to configure password less login to a system using public/private
+  keys.
+  
+GIT
+
+- Describe the process to commit files to git.
+
+- How will you unstage a file that has already been staged?
+
+- How will you revert to an old revision of file after a bad commit?
+
+
+Programming :
+
+Solve the following program in a language of your choice.
+
+http://coderbyte.com/CodingArea/information.php?ct=Overlapping%20Rectangles
+
