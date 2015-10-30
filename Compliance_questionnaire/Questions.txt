@@ -3,7 +3,13 @@ Windows :
 - You are asked to harden a Windows Server before it goes in production. What steps will
   you take to make the system production ready? Now assume, this server is going to have
   IIS installed on top it. What additional steps would you take, and why?
-  
+
+##Start of Windows Answers##########################################################################################
+
+Answer 1 : The first step I would take 
+
+##Start of Windows Answers##########################################################################################
+ 
 WMI :
 
 Provide WMI queries that can be run in either wmic or wmiexplorer for the following :
@@ -12,6 +18,32 @@ Provide WMI queries that can be run in either wmic or wmiexplorer for the follow
 - List all services on the system with start mode set to either Auto or Manual.
 - Provide a WMI query to determine whether a system is a Domain Controller.
 
+##Start of WMI Answers##############################################################################################
+
+Answer 1: wmic /node:<enter server name or localhost (can technically omit this)> /namespace:\\root\SecuirtyCenter2 Path AntiVirusProduct
+
+Example: wmic /node:localhost /namespace:\\root\SecuirtyCenter2 Path AntiVirusProduct get displayname /Format:list
+
+returns: displayName=Windows Defender
+
+Answer 2: Using CMD the query would be:
+wmic SERVICE WHERE "NOT StartMode LIKE 'Disabled'" get Name, StartMode
+
+returns: Name		StartMode
+	 AdAppMgrSvc	Auto
+	 ....		....
+
+Using PowerShell the query would be:
+wmic SERVICE WHERE "NOT StartMode LIKE 'Disabled'" get Name"," StartMode
+
+returns: Name		StartMode
+	 AdAppMgrSvc	Auto
+	 ....		....
+
+Answer 3:
+
+
+##End of WMI Answers################################################################################################
 PowerShell :
 
 - Provide a PowerShell query to list all processes with id greater than 1000 and less than 2000.
