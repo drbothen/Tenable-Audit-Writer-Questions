@@ -40,8 +40,26 @@ returns: Name		StartMode
 	 AdAppMgrSvc	Auto
 	 ....		....
 
-Answer 3:
+Answer 3: using CMD the query would be:
+wmic /node:localhost /namespace:\\root\cimv2 Path Win32_ComputerSystem get DomainRole,Name
 
+This wmi query returns a number between 0 and 5
+
+Standalone Workstation = 0
+Member Workstation = 1
+Standalone Server = 2
+Member Server = 3
+Backup Domain Controller = 4
+Primary Domain Controller = 5
+
+returns: DomainRole	Name
+	 5		Server01
+
+Using PowerShell the query would be:
+wmic /node:localhost /namespace:\\root\cimv2 Path Win32_ComputerSystem get DomainRole","Name
+
+returns: DomainRole	Name
+	 5		Server01
 
 ##End of WMI Answers################################################################################################
 PowerShell :
