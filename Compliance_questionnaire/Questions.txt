@@ -109,6 +109,10 @@ XSL Transforms :
 5 - Check the Firewall Status
 6 - Check Firewall Status for CIMHttpsServer
 
+##Start of XSL Transforms Answers#######################################################################################
+
+##End of XSL Transforms Answers#########################################################################################
+
 Regular Expressions :
 
 1 - Provide a regex that matches all numbers less than or equal to 1048576.
@@ -117,12 +121,20 @@ Regular Expressions :
   foobar = true 
   foobar  True
   Foobar : FALSE
+
+##Start of Regular Expressions Answers#######################################################################################
+
+##End of Regular Expressions Answers#########################################################################################
   
 MySQL :
 
 1 - List all users with null or blank password.
 2 - List all users having Super privilege and Shutdown privilege.
 3 - Provide a SQL query to audit secure_auth is enabled.
+
+##Start of MySQL Answers#######################################################################################
+
+##End of MySQL Answers#########################################################################################
 
 Linux
 
@@ -152,6 +164,10 @@ Linux
 
 10 - Provide detailed steps to configure password less login to a system using public/private
   keys.
+
+##Start of Linux Answers#######################################################################################
+
+##End of Linux Answers#########################################################################################
   
 GIT
 
@@ -161,10 +177,17 @@ GIT
 
 3 - How will you revert to an old revision of file after a bad commit?
 
+##Start of GIT Answers#######################################################################################
+
+##End of GIT Answers#########################################################################################
 
 Programming :
 
-Solve the following program in a language of your choice.
+1 - Solve the following program in a language of your choice.
 
 http://coderbyte.com/CodingArea/information.php?ct=Overlapping%20Rectangles
+
+##Start of Programming Answers#######################################################################################
+
+##End of Programming Answers#########################################################################################
 
