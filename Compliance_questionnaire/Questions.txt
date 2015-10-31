@@ -90,7 +90,7 @@ returns: Directory: C:\AMD|WU-CCC2\ccc2_install
 	-a---	7/3/2014 6:55 PM	6656	setup.bak
 	...	...			...	...
 
-This output can be pretty hard to read especially if you traversing the entire C drive. you can pipe the query to Format
+This output can be pretty hard to read especially if your traversing the entire C drive. you can pipe the query to Format
 
 Get-ChildItem C:\ -recurse | where{$_.Extension -eq ".bak" -or $_.Extension -eq ".temp"} | Format-table name
 
