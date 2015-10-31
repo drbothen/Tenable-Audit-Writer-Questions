@@ -1,6 +1,6 @@
 Windows :
 
-- You are asked to harden a Windows Server before it goes in production. What steps will
+1 - You are asked to harden a Windows Server before it goes in production. What steps will
   you take to make the system production ready? Now assume, this server is going to have
   IIS installed on top it. What additional steps would you take, and why?
 
@@ -14,9 +14,9 @@ WMI :
 
 Provide WMI queries that can be run in either wmic or wmiexplorer for the following :
 
-- Enumerate list of antivirus software's installed on the system.
-- List all services on the system with start mode set to either Auto or Manual.
-- Provide a WMI query to determine whether a system is a Domain Controller.
+1 - Enumerate list of antivirus software's installed on the system.
+2 - List all services on the system with start mode set to either Auto or Manual.
+3 - Provide a WMI query to determine whether a system is a Domain Controller.
 
 ##Start of WMI Answers##############################################################################################
 
@@ -64,22 +64,55 @@ returns: DomainRole	Name
 ##End of WMI Answers################################################################################################
 PowerShell :
 
-- Provide a PowerShell query to list all processes with id greater than 1000 and less than 2000.
-- Provide a PowerShell query to list only .bak and .temp files in C:\ under all folders and subfolders.
+1 - Provide a PowerShell query to list all processes with id greater than 1000 and less than 2000.
+2 - Provide a PowerShell query to list only .bak and .temp files in C:\ under all folders and subfolders.
+
+##Start of PowerShell Answers#######################################################################################
+
+Answer 1: Get-Process | where{$_.Id -gt 1000 -and $_.Id -lt 2000}
+
+returns: Handles NPM(K)	PM(K) WS(K) VM(M) CPU(s) Id    ProcessName
+	 638	 25	700   4916  59    38.48  1936  spoolsv
+	 ...	...	...   ...   ...   ...    ...   ...
+
+You can add a select or select-object at the end to return just the names of the process
+
+Get-Process | where{$_.Id -gt 1000 -and $_.Id -lt 2000} | select ProcessName
+
+returns: ProcessName
+	 spoolsv
+	 ...
+
+Answer 2: Get-ChildItem C:\ -recurse | where{$_.Extension -eq ".bak" -or $_.Extension -eq ".temp"}
+
+returns: Directory: C:\AMD|WU-CCC2\ccc2_install
+	Mode	LastWriteTime		Length	Name
+	-a---	7/3/2014 6:55 PM	6656	setup.bak
+	...	...			...	...
+
+This output can be pretty hard to read especially if you traversing the entire C drive. you can pipe the query to Format
+
+Get-ChildItem C:\ -recurse | where{$_.Extension -eq ".bak" -or $_.Extension -eq ".temp"} | Format-table name
+
+returns: Name
+	 setup.bak
+	 ...
+
+##End of PowerShell Answers##########################################################################################
 
 XSL Transforms :
 
-- Get a listing of vSwitch (provided in sample)
-- Get a listing of Pnic 
-- Get a listing ConsoleVnic 
-- Get a list of Services Running
-- Check the Firewall Status
-- Check Firewall Status for CIMHttpsServer
+1 - Get a listing of vSwitch (provided in sample)
+2 - Get a listing of Pnic 
+3 - Get a listing ConsoleVnic 
+4 - Get a list of Services Running
+5 - Check the Firewall Status
+6 - Check Firewall Status for CIMHttpsServer
 
 Regular Expressions :
 
-- Provide a regex that matches all numbers less than or equal to 1048576.
-- Provide a regex such it matches the "foobar" set to true/false/yes/no regardless of the case :
+1 - Provide a regex that matches all numbers less than or equal to 1048576.
+3 - Provide a regex such it matches the "foobar" set to true/false/yes/no regardless of the case :
   for e.g. 
   foobar = true 
   foobar  True
@@ -87,46 +120,46 @@ Regular Expressions :
   
 MySQL :
 
-- List all users with null or blank password.
-- List all users having Super privilege and Shutdown privilege.
-- Provide a SQL query to audit secure_auth is enabled.
+1 - List all users with null or blank password.
+2 - List all users having Super privilege and Shutdown privilege.
+3 - Provide a SQL query to audit secure_auth is enabled.
 
 Linux
 
-- What is the purpose of /proc filesystem ?
+1 - What is the purpose of /proc filesystem ?
 
-- Assume your dev system is full, how will you find out you which directories are using up
+2 - Assume your dev system is full, how will you find out you which directories are using up
   space, and start clearing unnecessary files?  
 
-- What are the benefits of a setuid program? And are there any security implications
+3 - What are the benefits of a setuid program? And are there any security implications
   of having setuid programs on a system?
 
-- Provide a command to find following files.
-  - setuid or setguid bit set
-  - world writeable files.
+4 - Provide a command to find following files.
+4.1  - setuid or setguid bit set
+4.2  - world writeable files.
 
-- When would you redirect output to /dev/null 2>&1 and what purpose does it serve?
+5 - When would you redirect output to /dev/null 2>&1 and what purpose does it serve?
 
-- How would you read first and last X number of lines from a file?
+6 - How would you read first and last X number of lines from a file?
 
-- How will you compare two files, and the list lines that have changed, while ignoring 
+7 - How will you compare two files, and the list lines that have changed, while ignoring 
   blank lines, and spaces?
   
-- How will you determine the program name associated that is listening on a given TCP/UDP port?
+8 - How will you determine the program name associated that is listening on a given TCP/UDP port?
 
-- Provide a command using grep to find all files with "info" or "error" or "warn" strings, 
+9 - Provide a command using grep to find all files with "info" or "error" or "warn" strings, 
  and then pipe those results, and list files that were modified in the past one week.  
 
-- Provide detailed steps to configure password less login to a system using public/private
+10 - Provide detailed steps to configure password less login to a system using public/private
   keys.
   
 GIT
 
-- Describe the process to commit files to git.
+1 - Describe the process to commit files to git.
 
-- How will you unstage a file that has already been staged?
+2 - How will you unstage a file that has already been staged?
 
-- How will you revert to an old revision of file after a bad commit?
+3 - How will you revert to an old revision of file after a bad commit?
 
 
 Programming :
