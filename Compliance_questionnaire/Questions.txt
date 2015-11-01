@@ -145,6 +145,431 @@ XSL Transforms :
 
 ##Start of XSL Transforms Answers#######################################################################################
 
+Answer 1: 
+    Name vSwitch0
+    Key  key-vim.host.VirtualSwitch-vSwitch0
+    NumPorts 32
+    NumPortsAvailable 29
+    MTU 1500
+    PortGroup key-vim.host.PortGroup-Service Console
+    Pnic key-vim.host.PhysicalNic-vmnic0
+
+    Name vSwitch1
+    Key  key-vim.host.VirtualSwitch-vSwitch1
+    NumPorts 64
+    NumPortsAvailable 61
+    MTU 1500
+    PortGroup key-vim.host.PortGroup-VMkernel
+    Pnic key-vim.host.PhysicalNic-vmnic1
+
+    Name vSwitch2
+    Key  key-vim.host.VirtualSwitch-vSwitch2
+    NumPorts 64
+    NumPortsAvailable 62
+    MTU 1500
+    PortGroup key-vim.host.PortGroup-Virtual Machine Network
+    Pnic key-vim.host.PhysicalNic-vmnic2
+
+Answer 2:
+    Key key-vim.host.PhysicalNic-vmnic0
+    Device vmnic0
+    PCI 02:00.0
+    Driver e1000
+    Speed 1000
+    Duplex true
+    MAC 00:0c:29:bd:6f:33
+    IP 
+        Speed 10
+        Duplex false
+        Speed 10
+        Duplex true
+        Speed 100
+        Duplex false
+        Speed 100
+        Duplex true
+        Speed 1000
+        Duplex true
+
+    Key key-vim.host.PhysicalNic-vmnic1
+    Device vmnic1
+    PCI 02:01.0
+    Driver e1000
+    Speed 1000
+    Duplex true
+    MAC 00:0c:29:bd:6f:3d
+    IP 
+        Speed 10
+        Duplex false
+        Speed 10
+        Duplex true
+        Speed 100
+        Duplex false
+        Speed 100
+        Duplex true
+        Speed 1000
+        Duplex true
+
+    Key key-vim.host.PhysicalNic-vmnic2
+    Device vmnic2
+    PCI 02:03.0
+    Driver e1000
+    Speed 1000
+    Duplex true
+    MAC 00:0c:29:bd:6f:47
+    IP 
+        Speed 10
+        Duplex false
+        Speed 10
+        Duplex true
+        Speed 100
+        Duplex false
+        Speed 100
+        Duplex true
+        Speed 1000
+        Duplex true
+
+Answer 3:
+    Device vswif0
+    Key key-vim.host.VirtualNic-vswif0
+    Port Group Service Console
+    Port key-vim.host.PortGroup.Port-16777219
+    DHCP Enabled false
+    IP 172.20.6.187
+    Subnet 255.255.252.0
+    MAC 00:50:56:41:e5:41
+
+Answer 4:
+    Key lwiod
+    Label I/O Redirector (Active Directory Service)
+    Required false
+    Uninstallable false
+    Running true
+    Policy automatic
+        
+    Key netlogond
+    Label Network Login Server (Active Directory Service)
+    Required false
+    Uninstallable false
+    Running true
+    Policy automatic
+        
+    Key sshd
+    Label SSH Server
+    Required false
+    Uninstallable false
+    Running true
+    Policy automatic
+        
+    Key vmware-vpxa
+    Label VMware vCenter Agent
+    Required false
+    Uninstallable false
+    Running true
+    Policy automatic
+        
+    Key vmware-webAccess
+    Label vSphere Web Access
+    Required false
+    Uninstallable false
+    Running true
+    Policy automatic
+
+Answer 5:
+    Incomming Blocked false
+    Out Going Blocked true
+
+    Rule Sets
+    
+        
+        Key CIMHttpServer
+        Label CIM Server
+        Enabled true
+        Required false
+        Port 5988
+        Direction inbound
+        Protocol tcp
+        
+        Key CIMHttpsServer
+        Label CIM Secure Server
+        Enabled true
+        Required false
+        Port 5989
+        Direction inbound
+        Protocol tcp
+        
+        Key CIMSLP
+        Label CIM SLP
+        Enabled true
+        Required false
+        Port 427
+        Direction inbound
+        Protocol udp
+        
+        Key LDAP
+        Label LDAP
+        Enabled false
+        Required false
+        Port 389
+        Direction outbound
+        Protocol tcp
+        
+        Key LDAPS
+        Label Secure LDAP
+        Enabled false
+        Required false
+        Port 636
+        Direction outbound
+        Protocol tcp
+        
+        Key TSM
+        Label Tivoli Storage Manager Agent
+        Enabled false
+        Required false
+        Port 1500
+        Direction inbound
+        Protocol tcp
+        
+        Key VCB
+        Label VMware Consolidated Backup
+        Enabled true
+        Required false
+        Port 443
+        Direction outbound
+        Protocol tcp
+        
+        Key activeDirectorKerberos
+        Label Active Directory Kerberos
+        Enabled false
+        Required false
+        Port 464
+        Direction outbound
+        Protocol udp
+        
+        Key activeDirectorOther
+        Label Active Directory Other
+        Enabled false
+        Required false
+        Port 3268
+        Direction outbound
+        Protocol tcp
+        
+        Key activeDirectoryAll
+        Label Active Directory All
+        Enabled true
+        Required false
+        Port 88
+        Direction outbound
+        Protocol udp
+        
+        Key caARCserve
+        Label CAARC Server
+        Enabled false
+        Required false
+        Port 6051
+        Direction inbound
+        Protocol tcp
+        
+        Key commvaultDynamic
+        Label CommVault Dynamic
+        Enabled false
+        Required false
+        Port 8600
+        Direction inbound
+        Protocol tcp
+        
+        Key commvaultStatic
+        Label CommVault Static
+        Enabled false
+        Required false
+        Port 8400
+        Direction inbound
+        Protocol tcp
+        
+        Key esxupdate
+        Label esxupdate
+        Enabled false
+        Required false
+        Port 80
+        Direction outbound
+        Protocol tcp
+        
+        Key faultTolerance
+        Label Fault Tolerance
+        Enabled false
+        Required false
+        Port 80
+        Direction outbound
+        Protocol tcp
+        
+        Key ftpClient
+        Label FTP Client
+        Enabled false
+        Required false
+        Port 21
+        Direction outbound
+        Protocol tcp
+        
+        Key ftpServer
+        Label FTP Server
+        Enabled false
+        Required false
+        Port 21
+        Direction inbound
+        Protocol tcp
+        
+        Key httpClient
+        Label httpClient
+        Enabled false
+        Required false
+        Port 80
+        Direction outbound
+        Protocol tcp
+        
+        Key kerberos
+        Label Kerberos
+        Enabled false
+        Required false
+        Port 749
+        Direction outbound
+        Protocol tcp
+        
+        Key legatoNetWorker
+        Label EMC NetWorker Agent
+        Enabled false
+        Required false
+        Port 7937
+        Direction inbound
+        Protocol tcp
+        
+        Key nfsClient
+        Label NFS Client
+        Enabled false
+        Required false
+        Port 111
+        Direction outbound
+        Protocol udp
+        
+        Key nisClient
+        Label NIS Client
+        Enabled false
+        Required false
+        Port 111
+        Direction outbound
+        Protocol udp
+        
+        Key ntpClient
+        Label NTP Client
+        Enabled false
+        Required false
+        Port 123
+        Direction outbound
+        Protocol udp
+        
+        Key smbClient
+        Label SMB Client
+        Enabled false
+        Required false
+        Port 137
+        Direction outbound
+        Protocol tcp
+        
+        Key snmpd
+        Label snmpd
+        Enabled false
+        Required false
+        Port 161
+        Direction inbound
+        Protocol udp
+        
+        Key sshClient
+        Label SSH Client
+        Enabled false
+        Required false
+        Port 22
+        Direction outbound
+        Protocol tcp
+        
+        Key sshServer
+        Label SSH Server
+        Enabled true
+        Required false
+        Port 22
+        Direction inbound
+        Protocol tcp
+        
+        Key swISCSIClient
+        Label swISCSIClient
+        Enabled true
+        Required false
+        Port 3260
+        Direction outbound
+        Protocol tcp
+        
+        Key symantecBackupExec
+        Label Symantec Backup Exec Agent
+        Enabled false
+        Required false
+        Port 10000
+        Direction inbound
+        Protocol tcp
+        
+        Key symantecNetBackup
+        Label Symantec Net Backup Agent
+        Enabled false
+        Required false
+        Port 13724
+        Direction inbound
+        Protocol tcp
+        
+        Key telnetClient
+        Label Telnet Client
+        Enabled false
+        Required false
+        Port 23
+        Direction outbound
+        Protocol tcp
+        
+        Key updateManager
+        Label vCenter Update Manager
+        Enabled false
+        Required false
+        Port 80
+        Direction outbound
+        Protocol tcp
+        
+        Key vncServer
+        Label VNC Server
+        Enabled false
+        Required false
+        Port 5900
+        Direction inbound
+        Protocol tcp
+        
+        Key vpxHeartbeats
+        Label VMware vCenter Agent
+        Enabled true
+        Required false
+        Port 902
+        Direction outbound
+        Protocol udp
+        
+        Key webAccess
+        Label vSphere Web Access
+        Enabled false
+        Required false
+        Port 80
+        Direction inbound
+        Protocol tcp
+
+Answer 6:
+        Key CIMHttpsServer
+        Label CIM Secure Server
+        Enabled true
+        Required false
+        Port 5989
+        Direction inbound
+        Protocol tcp
+
 ##End of XSL Transforms Answers#########################################################################################
 
 Regular Expressions :
