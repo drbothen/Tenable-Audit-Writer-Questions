@@ -575,13 +575,17 @@ Answer 6:
 Regular Expressions :
 
 1 - Provide a regex that matches all numbers less than or equal to 1048576.
-3 - Provide a regex such it matches the "foobar" set to true/false/yes/no regardless of the case :
+2 - Provide a regex such it matches the "foobar" set to true/false/yes/no regardless of the case :
   for e.g. 
   foobar = true 
   foobar  True
   Foobar : FALSE
 
 ##Start of Regular Expressions Answers#######################################################################################
+
+Answer 1:
+
+Answer 2:
 
 ##End of Regular Expressions Answers#########################################################################################
   
@@ -592,6 +596,12 @@ MySQL :
 3 - Provide a SQL query to audit secure_auth is enabled.
 
 ##Start of MySQL Answers#######################################################################################
+
+Answer 1:
+
+Answer 2:
+
+Answer 3:
 
 ##End of MySQL Answers#########################################################################################
 
@@ -628,6 +638,24 @@ Linux
 
 Answer 1: The proc filesystem (procfs) is a special filesystem in Unix-like operating systems that presents information about processes and other system information in a hierarchical file-like structure, providing a more convenient and standardized method for dynamically accessing process data held in the kernel than traditional tracing methods or direct access to kernel memory. Typically, it is mapped to a mount point named /proc at boot time. The proc file system acts as an interface to internal data structures in the kernel. It can be used to obtain information about the system and to change certain kernel parameters at runtime
 
+Answer 2:
+
+Answer 3:
+
+Answer 4:
+
+Answer 5:
+
+Answer 6:
+
+Answer 7:
+
+Answer 8:
+
+Answer 9:
+
+Answer 10:
+
 ##End of Linux Answers#########################################################################################
   
 GIT
@@ -635,10 +663,18 @@ GIT
 1 - Describe the process to commit files to git.
 
 2 - How will you unstage a file that has already been staged?
-
 3 - How will you revert to an old revision of file after a bad commit?
 
 ##Start of GIT Answers#######################################################################################
+
+Answer 1:
+Typically before I do a commit I do a git status to see the files that have been changed and if I need a quick reminder I will do a git diff to see the changes. This allows me to breakup up the commits into smaller logical parts if I made a lot of changes without making commit. Usually I make a commit after each logical small change. After I see what has change I then do a git add <filename> or I do a git add * to add everything. I then do a git commit and type my change commit following the style guide from https://udacity.github.io/git-styleguide/. 
+
+Answer 2:
+git reset HEAD <file> or you can use * to unstage everything
+
+Answer 3:
+perform a git log to git a list of commit hashes. Then you use git check <hash> to checkout the commit. You keep doing this until you have reverted to the file that is correct.
 
 ##End of GIT Answers#########################################################################################
 
@@ -649,6 +685,8 @@ Programming :
 http://coderbyte.com/CodingArea/information.php?ct=Overlapping%20Rectangles
 
 ##Start of Programming Answers#######################################################################################
+
+Answer 1:
 
 ##End of Programming Answers#########################################################################################
 
