@@ -600,10 +600,13 @@ MySQL :
 ##Start of MySQL Answers#######################################################################################
 
 Answer 1:
+SELECT host, user, password FROM mysql.user WHERE password IS NULL OR password = " ";
 
 Answer 2:
+SELECT host, user FROM mysql.user WHERE shutdown_priv="Y" or super_priv="Y";
 
 Answer 3:
+SHOW VARIABLES LIKE "secure_auth"; 
 
 ##End of MySQL Answers#########################################################################################
 
