@@ -603,7 +603,7 @@ Answer 1:
 SELECT host, user, password FROM mysql.user WHERE password IS NULL OR password = " ";
 
 Answer 2:
-SELECT host, user FROM mysql.user WHERE shutdown_priv="Y" or super_priv="Y";
+SELECT host, user FROM mysql.user WHERE shutdown_priv="Y" OR super_priv="Y";
 
 Answer 3:
 SHOW VARIABLES LIKE "secure_auth"; 
@@ -621,7 +621,7 @@ Linux
   of having setuid programs on a system?
 
 4 - Provide a command to find following files.
-4.1  - setuid or setguid bit set
+4.1  - setuid or setgid bit set
 4.2  - world writeable files.
 
 5 - When would you redirect output to /dev/null 2>&1 and what purpose does it serve?
@@ -641,25 +641,59 @@ Linux
 
 ##Start of Linux Answers#######################################################################################
 
-Answer 1: The proc filesystem (procfs) is a special filesystem in Unix-like operating systems that presents information about processes and other system information in a hierarchical file-like structure, providing a more convenient and standardized method for dynamically accessing process data held in the kernel than traditional tracing methods or direct access to kernel memory. Typically, it is mapped to a mount point named /proc at boot time. The proc file system acts as an interface to internal data structures in the kernel. It can be used to obtain information about the system and to change certain kernel parameters at runtime
+Answer 1: /proc is a Virtual filesystem which does not reside on a disk, but it resides on system memory (RAM). The files and directories in this filesystem are used by system to register processes they run and also the setting (tunables) of the operating systems get loaded from the disk to the /proc filesystem when the system boots up, so that the system doesnt have to reach to the disk everytime it has to read some setting or values.
+
+It Also holds some real time statistical information such as process ID's cpu memory and IO stats and kernel Values. This filesystem is useful for users to read/fetch data , when they need to read some values from the kernel.
 
 Answer 2:
+I would cd into my dev folders and issue a du -hsx /* | sort -rh This command will allow me to see what my biggest directories are and I can continue traversing the file system deleting old projects and applications that are no longer needed. Now if this was really my dev system I do not have anything on the system that is not contained in a backup and everything is documented so I would just reimage and rerun my setup scripts to redeploy the dev system. A dev system should be reimage every so often anyways as it builds up crud
 
 Answer 3:
+The benefits of Setuid allows an executable to run with the permissions of its owner or group. This is helpful in cases where you wouldn’t want to give rights to an individual user, except in a controlled way. For example, sendmail is sometimes setuid, so that when a user attempts to send mail, the application is able to drop the outgoing email in the spool directory which is normally not accessible by everyone.
+
+The Security implications can be pretty significant. For example if the setuid application allows the user to escape to a shell, then the user can do anything as the other user. This is call privileged escalation.
 
 Answer 4:
+	4.1:
+		find / -perm -4000 -o -2000  or find / -type f \( -perm -4000 -o -2000 \) -print : Both commands are basically the same I have found no difference in the amout of entries returned in my test environment.
+	
+	4.2:
+		find / -perm -2 ! -type l -ls
+						
 
 Answer 5:
 
+	you redirect output to /dev/null 2>&1 when you want to execute a program quietly. It sends all output to dev/null including stderr, Everything in dev/null is automatically discarded. This could be usfull for silent cron jobs.
+
 Answer 6:
+	head -nx <file> && tail -nx <file>
+
+the -n flag alows you to fill in for x the number of lines you want to read
 
 Answer 7:
+	diff --ignore-all-space --ignore-blank-lines <file1> <file2>
 
 Answer 8:
+	You can use the following:
+				netstat -tulpn
+				if you need more find the port and the protocal for the next command
+				fuser 3567/tcp - this will return the PID that opened that port
+				ls-l /proc/4561/exe - This will return the process
 
 Answer 9:
+	The result of the question is to only retrieve files that have either warn or error contained in them if they have been modified in the last 7 days. Instead of greping through every single file on the system only to pipe that content to a filter to only display the last 7 days’ worth of files that contains our search string we should first find the files that have changed in the last 7 days and then grep through those for our search string.
+
+find / -ctime -7 | egrp -Hlrn 'error|warn'
 
 Answer 10:
+-	Open a terminal on your computer and type ssh-keygen. You will be prompted for a filename. Just hit enter to continue. You will then need to enter a passphrase a couple of times and then it generates your key
+-	The ssh-keygen program generated two files: /home/<username>/.ssh/id_rsa and id_rsa.pub
+-	The first file is your private key id_rsa. This should be backup and kept in a safe place. This key should only be on YOUR system.
+-	The second file is your public key id_rsa.pub. This file will be compied to each server you want to log into and append it to /home/<username>/.ssh/authorized_keys
+-	To copy your public key to a server you will issue the following command ssh-copy-id <server>
+-	You will be prompted to eater your normal login password on the server and then your public key will be installed
+-	Password-less ssh setup is completed
+
 
 ##End of Linux Answers#########################################################################################
   
