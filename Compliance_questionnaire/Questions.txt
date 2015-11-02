@@ -726,6 +726,9 @@ http://coderbyte.com/CodingArea/information.php?ct=Overlapping%20Rectangles
 ##Start of Programming Answers#######################################################################################
 
 Answer 1:
+
+Just as a FYI, there seams to be a bug with submitting code to coderbyte, I had to submit the code below 4 times before it passed every single testcase
+
 __author__ = 'jmagady'
 
 
